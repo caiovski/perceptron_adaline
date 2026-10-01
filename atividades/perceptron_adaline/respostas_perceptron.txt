@@ -2,7 +2,7 @@
   CEFET-MG Campus VIII – Varginha | Bacharelado em Sistemas de Informação
   Disciplina: Laboratório de Inteligência Artificial
   Professor: Lázaro Eduardo da Silva
-  Aluno: (Preencher Nome)
+  Aluno: Caio Magalhães Fonseca Arantes
   Data: 01/10/2026
 
   ATIVIDADE PRÁTICA: REDE NEURAL PERCEPTRON (Classificação de Pureza de Óleo)
