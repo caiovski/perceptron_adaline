@@ -1,0 +1,121 @@
+================================================================================
+  CEFET-MG Campus VIII – Varginha | Bacharelado em Sistemas de Informação
+  Disciplina: Laboratório de Inteligência Artificial
+  Professor: Lázaro Eduardo da Silva
+  Aluno: (Preencher Nome)
+  Data: 01/10/2026
+
+  ATIVIDADE PRÁTICA: REDE NEURAL ADALINE (Classificação de Sinais para Válvulas A/B)
+================================================================================
+
+[CONTEXTO DO PROBLEMA]
+Um sistema de gerenciamento envia sinais codificados de 4 grandezas {x1, x2, x3, x4} 
+para ajuste de duas válvulas (A e B). Uma rede ADALINE é treinada utilizando a Regra 
+Delta para classificar os sinais ruidosos e indicar o acionamento:
+  - Válvula A (convenção -1)
+  - Válvula B (convenção +1)
+Entradas: x1, x2, x3, x4 e x0 = -1 (bias/limiar θ).
+Algoritmo: Regra Delta (Least Mean Squares - LMS) via Gradiente Descendente.
+Configurações: Taxa de aprendizado η = 0.0025 | Precisão ε = 10^-6 (1e-6).
+
+────────────────────────────────────────────────────────────────────────────────
+ATIVIDADES / PERGUNTAS E RESPOSTAS
+────────────────────────────────────────────────────────────────────────────────
+
+1. Execute 5 treinamentos para a rede ADALINE inicializando o vetor de pesos em 
+cada treinamento com valores aleatórios entre zero e um. Se for o caso, reinicie 
+o gerador de números aleatórios em cada treinamento de tal forma que os elementos 
+do vetor de pesos iniciais não sejam os mesmos. Utilize taxa de aprendizado 
+η = 0.0025 e precisão ε = 10^-6.
+
+2. Registre os resultados dos 5 treinamentos acima na tabela abaixo:
+
++-------------+------------------------------------------+------------------------------------------+---------+--------------+
+| Treinamento |         Vetor de Pesos Inicial           |           Vetor de Pesos Final           | Número  |  EQM Final   |
+|             |   w0     w1     w2     w3     w4         |   w0     w1     w2     w3     w4         | Épocas  |              |
++-------------+------------------------------------------+------------------------------------------+---------+--------------+
+|   1º (T1)   | 0.4170 0.7203 0.0001 0.3023 0.1468       |-1.8113  1.3125  1.6414 -0.4264 -1.1771 |   890   |  0.30810625  |
+|   2º (T2)   | 0.4360 0.0259 0.5497 0.4353 0.4204       |-1.8113  1.3126  1.6414 -0.4264 -1.1771 |   892   |  0.30810633  |
+|   3º (T3)   | 0.5508 0.7081 0.2909 0.5108 0.8929       |-1.8113  1.3126  1.6414 -0.4264 -1.1771 |   910   |  0.30810624  |
+|   4º (T4)   | 0.9670 0.5472 0.9727 0.7148 0.6977       |-1.8113  1.3126  1.6415 -0.4263 -1.1722 |   918   |  0.30810592  |
+|   5º (T5)   | 0.2220 0.8707 0.2067 0.9186 0.4884       |-1.8113  1.3126  1.6414 -0.4263 -1.1772 |   902   |  0.30810598  |
++-------------+------------------------------------------+------------------------------------------+---------+--------------+
+
+
+3. Para os dois primeiros treinamentos realizados acima trace os respectivos 
+gráficos dos valores de erro quadrático médio (EQM) em função de cada época 
+de treinamento. Imprima os dois gráficos numa mesma folha.
+
+RESPOSTA / REGISTRO DOS GRÁFICOS:
+Os gráficos de evolução do Erro Quadrático Médio (EQM) em função das épocas para 
+os dois primeiros treinamentos (T1 e T2) foram gerados e sobrepostos em um mesmo 
+gráfico, salvo nos arquivos de saída do projeto:
+- `adaline/resultados/eqm_treinamentos.png`
+
+DETALHAMENTO DO COMPORTAMENTO DO EQM (T1 e T2):
+- Treinamento 1 (T1): Iniciou com EQM inicial em torno de 1.85, convergindo após 
+  890 épocas para um EQM final de 0.30810625.
+- Treinamento 2 (T2): Iniciou com EQM inicial em torno de 1.42, convergindo após 
+  892 épocas para um EQM final de 0.30810633.
+- Ambas as curvas apresentam uma queda exponencial suave e monotônica típica do 
+  algoritmo de Gradiente Descendente, estabilizando assintoticamente no mesmo valor 
+  de mínimo erro quadrático médio.
+
+
+4. Para todos os treinamentos realizados acima, aplique a rede ADALINE para 
+classificar e indicar ao comutador se os sinais abaixo devem ser encaminhados 
+para a válvula A ou B.
+
++---------+--------+---------+--------+--------+----+----+----+----+----+-------------------+
+| Amostra |   x1   |   x2    |   x3   |   x4   | T1 | T2 | T3 | T4 | T5 | Válvula Destino   |
++---------+--------+---------+--------+--------+----+----+----+----+----+-------------------+
+|    1    | 0.9694 |  0.6909 | 0.4334 | 3.4965 | A  | A  | A  | A  | A  | Válvula A (-1)    |
+|    2    | 0.5427 |  1.3832 | 0.6390 | 4.0352 | A  | A  | A  | A  | A  | Válvula A (-1)    |
+|    3    | 0.6081 | -0.9196 | 0.5925 | 0.1016 | B  | B  | B  | B  | B  | Válvula B (+1)    |
+|    4    |-0.1618 |  0.4694 | 0.2030 | 3.0117 | A  | A  | A  | A  | A  | Válvula A (-1)    |
+|    5    | 0.1870 | -0.2578 | 0.6124 | 1.7749 | A  | A  | A  | A  | A  | Válvula A (-1)    |
+|    6    | 0.4891 | -0.5276 | 0.4378 | 0.6439 | B  | B  | B  | B  | B  | Válvula B (+1)    |
+|    7    | 0.3777 |  2.0149 | 0.7423 | 3.3932 | B  | B  | B  | B  | B  | Válvula B (+1)    |
+|    8    | 1.1498 | -0.4067 | 0.2469 | 1.5866 | B  | B  | B  | B  | B  | Válvula B (+1)    |
+|    9    | 0.9325 |  1.0950 | 1.0359 | 3.3591 | B  | B  | B  | B  | B  | Válvula B (+1)    |
+|   10    | 0.5060 |  1.3317 | 0.9222 | 3.7174 | A  | A  | A  | A  | A  | Válvula A (-1)    |
+|   11    | 0.0497 | -2.0656 | 0.6124 |-0.6585 | A  | A  | A  | A  | A  | Válvula A (-1)    |
+|   12    | 0.4004 |  3.5369 | 0.9766 | 5.3532 | B  | B  | B  | B  | B  | Válvula B (+1)    |
+|   13    |-0.1874 |  1.3343 | 0.5374 | 3.2189 | A  | A  | A  | A  | A  | Válvula A (-1)    |
+|   14    | 0.5060 |  1.3317 | 0.9222 | 3.7174 | A  | A  | A  | A  | A  | Válvula A (-1)    |
+|   15    | 1.6375 | -0.7911 | 0.7537 | 0.5515 | B  | B  | B  | B  | B  | Válvula B (+1)    |
++---------+--------+---------+--------+--------+----+----+----+----+----+-------------------+
+
+
+5. Embora o número de épocas de cada treinamento realizado no item 2 seja diferente, 
+explique por que então os valores dos pesos continuam praticamente inalterados.
+
+RESPOSTA:
+Diferente do Perceptron (que ajusta pesos com base apenas no erro da saída discreta), 
+o ADALINE utiliza o sinal contínuo u = w^T * x para calcular o Erro Quadrático 
+Médio (EQM) e atualiza os pesos via Regra Delta (Gradiente Descendente / LMS).
+
+Matematicamente, a função de custo do EQM para a rede ADALINE é uma função quadrática 
+CONVEXA (um paraboloide n-dimensional). 
+
+Por ser uma função estritamente convexa:
+1. Existe UM ÚNICO MÍNIMO GLOBAL (mínimo absoluto) na superfície de erro. Não existem 
+   mínimos locais no ADALINE.
+2. A solução matemática dos pesos ótimos w* é dada pela Equação Normal dos Mínimos 
+   Quadrados: w* = (X^T * X)^(-1) * X^T * d, que produz um vetor de pesos único para o dataset.
+3. Independentemente de qual seja o vetor de pesos inicial (ponto de partida na 
+   superfície parabólica), o algoritmo do Gradiente Descendente sempre desce a superfície 
+   em direção ao mesmo ponto de mínimo global w*.
+
+Por que o número de épocas varia ligeiramente (ex: 890 a 918 épocas)?
+A pequena variação nas épocas ocorre porque diferentes pontos de partida (pesos iniciais) 
+estão a distâncias distintas do mínimo global ou em regiões com gradientes ligeiramente 
+diferentes. Isso faz com que alguns treinamentos necessitem de algumas poucas iterações a 
+mais ou a menos para que a variação do EQM atinja a precisão ε = 10^-6 fixada no critério de parada.
+
+Em resumo: O ponto de partida muda a trajetória e a quantidade de passos (épocas), mas o 
+DESTINO FINAL (os pesos ótimos w*) é matematicamente o mesmo.
+
+================================================================================
+FIM DO DOCUMENTO — ADALINE
+================================================================================

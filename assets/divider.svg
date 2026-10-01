@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 4">
+  <defs>
+    <linearGradient id="divGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:0"/>
+      <stop offset="30%" style="stop-color:#00d4ff;stop-opacity:0.6"/>
+      <stop offset="50%">
+        <animate attributeName="stop-color" values="#00d4ff;#66e5ff;#00bfff;#00d4ff" dur="4s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="70%" style="stop-color:#00d4ff;stop-opacity:0.6"/>
+      <stop offset="100%" style="stop-color:#00d4ff;stop-opacity:0"/>
+    </linearGradient>
+    <style>
+      @keyframes scan {
+        0% { transform: translateX(-100px); opacity: 0; }
+        20% { opacity: 1; }
+        80% { opacity: 1; }
+        100% { transform: translateX(1000px); opacity: 0; }
+      }
+      .scanner {
+        animation: scan 3s linear infinite;
+      }
+    </style>
+  </defs>
+  <rect width="900" height="4" fill="url(#divGrad)" rx="2"/>
+  <rect class="scanner" x="0" y="0" width="80" height="4" fill="#66e5ff" rx="2" opacity="0.5">
+    <animate attributeName="x" from="-80" to="900" dur="3s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;0.8;0.8;0" dur="3s" repeatCount="indefinite"/>
+  </rect>
+</svg>
