@@ -50,7 +50,16 @@ BIAS_INPUT = -1             # Valor fixo da entrada x0 (bias do neurônio)
 # Caminhos de arquivos
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 RESULTADOS_DIR = os.path.join(SCRIPT_DIR, 'resultados')
-DATASET_PATH = os.path.join(SCRIPT_DIR, '..', 'atividades', 'oleo_dataset.csv')
+
+# Procurar o dataset oleo_dataset.csv em caminhos possíveis
+_caminhos_possiveis = [
+    os.path.join(SCRIPT_DIR, '..', 'atividades', 'perceptron_adaline', 'oleo_dataset.csv'),
+    os.path.join(SCRIPT_DIR, '..', 'atividades', 'oleo_dataset.csv'),
+    os.path.join(SCRIPT_DIR, 'oleo_dataset.csv'),
+    os.path.join(os.getcwd(), 'atividades', 'perceptron_adaline', 'oleo_dataset.csv'),
+    'oleo_dataset.csv'
+]
+DATASET_PATH = next((p for p in _caminhos_possiveis if os.path.exists(p)), _caminhos_possiveis[0])
 
 # Criar pasta de resultados se não existir
 os.makedirs(RESULTADOS_DIR, exist_ok=True)
@@ -478,7 +487,7 @@ def main():
     print("  PERCEPTRON — Classificação de Pureza de Óleo")
     print("  CEFET-MG Campus VIII – Varginha | Lab. Inteligência Artificial")
     print("=" * 72)
-    print(f"\n  ⚙ Configurações:")
+    print(f"\n   Configurações:")
     print(f"    • Taxa de aprendizagem (η):  {TAXA_APRENDIZAGEM}")
     print(f"    • Bias (x0):                 {BIAS_INPUT}")
     print(f"    • Função de ativação:         Degrau Bipolar")
@@ -489,11 +498,11 @@ def main():
     # CARREGAR DATASET
     # ─────────────────────────────────────────────────────────────────────
     print(f"\n{'─' * 72}")
-    print("  📂 Carregando dataset...")
+    print("   Carregando dataset...")
     X_treino, d_treino = carregar_dataset(DATASET_PATH)
     n_c1 = int(np.sum(d_treino == -1))
     n_c2 = int(np.sum(d_treino == 1))
-    print(f"    ✓ {len(X_treino)} amostras carregadas")
+    print(f"     {len(X_treino)} amostras carregadas")
     print(f"    • Classe C1 (d = -1): {n_c1} amostras")
     print(f"    • Classe C2 (d = +1): {n_c2} amostras")
 
@@ -504,7 +513,7 @@ def main():
     # ITENS 1 e 2: EXECUTAR 5 TREINAMENTOS
     # ─────────────────────────────────────────────────────────────────────
     print(f"\n{'=' * 72}")
-    print("  📋 ITENS 1 e 2 — Resultados dos 5 Treinamentos")
+    print("   ITENS 1 e 2 — Resultados dos 5 Treinamentos")
     print(f"{'=' * 72}")
 
     resultados_treino = []
@@ -550,7 +559,7 @@ def main():
     # ITEM 3: CLASSIFICAÇÃO DAS AMOSTRAS DE TESTE
     # ─────────────────────────────────────────────────────────────────────
     print(f"\n{'=' * 72}")
-    print("  📋 ITEM 3 — Classificação das Amostras de Teste")
+    print("   ITEM 3 — Classificação das Amostras de Teste")
     print(f"{'=' * 72}")
 
     # Classificar com cada modelo treinado
@@ -578,7 +587,7 @@ def main():
     print(f"\n  Legenda: C1 = Classe 1 (d = -1) | C2 = Classe 2 (d = +1)")
 
     # Verificar concordância entre treinamentos
-    print(f"\n  📊 Análise de concordância:")
+    print(f"\n   Análise de concordância:")
     for j in range(len(AMOSTRAS_TESTE)):
         votos = [classificacoes[i][j] for i in range(5)]
         if len(set(votos)) == 1:
@@ -595,7 +604,7 @@ def main():
     # ITEM 4: EXPLICAÇÃO TEÓRICA
     # ─────────────────────────────────────────────────────────────────────
     print(f"\n{'=' * 72}")
-    print("  📋 ITEM 4 — Por que o número de épocas varia?")
+    print("   ITEM 4 — Por que o número de épocas varia?")
     print(f"{'=' * 72}")
     print("""
     O número de épocas varia porque os PESOS INICIAIS são diferentes em
@@ -632,7 +641,7 @@ def main():
     # ITEM 5: LIMITAÇÃO DO PERCEPTRON
     # ─────────────────────────────────────────────────────────────────────
     print(f"\n{'=' * 72}")
-    print("  📋 ITEM 5 — Principal limitação do Perceptron")
+    print("   ITEM 5 — Principal limitação do Perceptron")
     print(f"{'=' * 72}")
     print("""
     A principal limitação do Perceptron é que ele SOMENTE consegue
@@ -641,22 +650,22 @@ def main():
     ┌─────────────────────────────────────────────────────────────┐
     │  LINEARMENTE SEPARÁVEL          NÃO LINEARMENTE SEPARÁVEL  │
     │                                                             │
-    │       ✕ ✕ ✕ │ ● ● ●                  ✕ ● ✕                │
-    │     ✕ ✕     │   ● ●                ● ✕ ● ✕               │
-    │       ✕     │ ● ●                    ● ✕ ●                │
+    │          │ ● ● ●                   ●                 │
+    │           │   ● ●                ●  ●                │
+    │            │ ● ●                    ●  ●                │
     │             │                                               │
     │   Uma linha separa as       Nenhuma linha reta consegue     │
-    │   duas classes ✓            separar as classes ✗            │
+    │   duas classes             separar as classes             │
     └─────────────────────────────────────────────────────────────┘
 
     Exemplo clássico: o problema XOR (OU-Exclusivo)
 
         x1  x2  │  Saída            Não existe nenhuma linha
         ────────┼──────            reta que separe as saídas
-         0   0  │   0  (✕)          0 e 1 neste problema.
+         0   0  │   0  ()          0 e 1 neste problema.
          0   1  │   1  (●)
          1   0  │   1  (●)          O perceptron ficaria em
-         1   1  │   0  (✕)          loop INFINITO tentando.
+         1   1  │   0  ()          loop INFINITO tentando.
 
     Para resolver problemas não linearmente separáveis, são
     necessárias redes com MÚLTIPLAS CAMADAS, como o MLP
@@ -668,20 +677,20 @@ def main():
     # GRÁFICOS
     # ─────────────────────────────────────────────────────────────────────
     print(f"{'=' * 72}")
-    print("  📊 Gerando gráficos...")
+    print("   Gerando gráficos...")
     print(f"{'=' * 72}")
 
     # Gráfico 1: Evolução dos erros
     caminho1 = plotar_evolucao_erros(resultados_treino)
-    print(f"    ✓ Evolução dos erros:       {caminho1}")
+    print(f"     Evolução dos erros:       {caminho1}")
 
     # Gráfico 2: Dispersão 3D
     caminho2 = plotar_dispersao_3d(X_treino, d_treino, resultados_treino)
-    print(f"    ✓ Dispersão 3D:             {caminho2}")
+    print(f"     Dispersão 3D:             {caminho2}")
 
     # Gráfico 3: Classificação das amostras de teste
     caminho3 = plotar_comparacao_classificacoes(classificacoes, AMOSTRAS_TESTE)
-    print(f"    ✓ Classificação de teste:   {caminho3}")
+    print(f"     Classificação de teste:   {caminho3}")
 
     # ─────────────────────────────────────────────────────────────────────
     # SALVAR RELATÓRIO EM ARQUIVO TEXTO
@@ -747,13 +756,13 @@ def main():
         f.write("Para problemas não linearmente separáveis (como XOR), o perceptron\n")
         f.write("nunca converge. São necessárias redes multicamadas (MLP).\n")
 
-    print(f"\n    ✓ Relatório salvo:          {relatorio_path}")
+    print(f"\n     Relatório salvo:          {relatorio_path}")
 
     # ─────────────────────────────────────────────────────────────────────
     # FINALIZAÇÃO
     # ─────────────────────────────────────────────────────────────────────
     print(f"\n{'=' * 72}")
-    print("  ✅ Execução concluída com sucesso!")
+    print("   Execução concluída com sucesso!")
     print(f"{'=' * 72}")
     print(f"\n  Arquivos gerados em: perceptron/resultados/")
     print(f"    • evolucao_erros.png      — Gráfico de erros por época")

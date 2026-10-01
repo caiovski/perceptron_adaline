@@ -15,7 +15,7 @@
 
 <img src="assets/divider.svg" width="100%" alt="divider"/>
 
-## 📖 Sobre o Projeto
+##  Sobre o Projeto
 
 Este repositório contém a implementação de duas redes neurais artificiais clássicas — **Perceptron** e **ADALINE** — desenvolvidas para a disciplina de **Laboratório de Inteligência Artificial** do CEFET-MG Campus VIII (Varginha), ministrada pelo Prof. Lázaro Eduardo da Silva.
 
@@ -23,7 +23,7 @@ Ambas as redes são de **camada única** e servem como base para entender os fun
 
 <img src="assets/divider.svg" width="100%" alt="divider"/>
 
-## ⚡ Perceptron — Classificação de Pureza de Óleo
+##  Perceptron — Classificação de Pureza de Óleo
 
 ### O Problema
 
@@ -53,7 +53,7 @@ A partir da análise de um processo de **destilação fracionada de petróleo**,
 ### Resultados
 
 <details>
-<summary>📊 <b>Tabela de Treinamentos (clique para expandir)</b></summary>
+<summary> <b>Tabela de Treinamentos (clique para expandir)</b></summary>
 
 <br>
 
@@ -65,12 +65,12 @@ A partir da análise de um processo de **destilação fracionada de petróleo**,
 | T4 | 0.9670 | 0.5472 | 0.9727 | 0.7148 | -3.0530 | 1.5299 | 2.4721 | -0.7284 | **426** |
 | T5 | 0.2220 | 0.8707 | 0.2067 | 0.9186 | -3.1580 | 1.5962 | 2.5345 | -0.7505 | **434** |
 
-> 💡 **Observação:** Os pesos finais são *semelhantes* mas **não idênticos** — o Perceptron encontra qualquer hiperplano válido, não necessariamente o mesmo.
+>  **Observação:** Os pesos finais são *semelhantes* mas **não idênticos** — o Perceptron encontra qualquer hiperplano válido, não necessariamente o mesmo.
 
 </details>
 
 <details>
-<summary>🎯 <b>Classificação das Amostras de Teste (clique para expandir)</b></summary>
+<summary> <b>Classificação das Amostras de Teste (clique para expandir)</b></summary>
 
 <br>
 
@@ -87,7 +87,7 @@ A partir da análise de um processo de **destilação fracionada de petróleo**,
 | 9 | -1.3970 | 0.7141 | 4.9263 | C1 | C1 | C1 | C1 | C1 |
 | 10 | -1.8842 | -0.2805 | 1.2548 | C1 | C1 | C1 | C1 | C1 |
 
-> ✅ **100% de unanimidade** — todos os 5 treinamentos concordam em todas as amostras.
+>  **100% de unanimidade** — todos os 5 treinamentos concordam em todas as amostras.
 
 </details>
 
@@ -107,7 +107,7 @@ A partir da análise de um processo de **destilação fracionada de petróleo**,
 
 <img src="assets/divider.svg" width="100%" alt="divider"/>
 
-## 🔬 ADALINE — Classificação de Sinais (Válvulas A/B)
+##  ADALINE — Classificação de Sinais (Válvulas A/B)
 
 ### O Problema
 
@@ -138,7 +138,7 @@ Um sistema industrial envia sinais codificados com **4 grandezas** para acionar 
 ### Resultados
 
 <details>
-<summary>📊 <b>Tabela de Treinamentos (clique para expandir)</b></summary>
+<summary> <b>Tabela de Treinamentos (clique para expandir)</b></summary>
 
 <br>
 
@@ -150,12 +150,12 @@ Um sistema industrial envia sinais codificados com **4 grandezas** para acionar 
 | T4 | -1.8113 | 1.3126 | 1.6415 | -0.4263 | -1.1772 | **918** |
 | T5 | -1.8113 | 1.3126 | 1.6414 | -0.4263 | -1.1772 | **902** |
 
-> 💡 **Observação:** Os pesos finais são **praticamente idênticos** (variação < 0.0002) — a Adaline converge para a **solução única** do mínimo global.
+>  **Observação:** Os pesos finais são **praticamente idênticos** (variação < 0.0002) — a Adaline converge para a **solução única** do mínimo global.
 
 </details>
 
 <details>
-<summary>🎯 <b>Classificação das Amostras de Teste (clique para expandir)</b></summary>
+<summary> <b>Classificação das Amostras de Teste (clique para expandir)</b></summary>
 
 <br>
 
@@ -177,7 +177,7 @@ Um sistema industrial envia sinais codificados com **4 grandezas** para acionar 
 | 14 | 0.5060 | 1.3317 | 0.9222 | 3.7174 | A | A | A | A | A |
 | 15 | 1.6375 | -0.7911 | 0.7537 | 0.5515 | B | B | B | B | B |
 
-> ✅ **100% de unanimidade** — resultado esperado, já que a Adaline converge para a mesma solução.
+>  **100% de unanimidade** — resultado esperado, já que a Adaline converge para a mesma solução.
 
 </details>
 
@@ -197,13 +197,13 @@ Um sistema industrial envia sinais codificados com **4 grandezas** para acionar 
 
 <img src="assets/divider.svg" width="100%" alt="divider"/>
 
-## ⚡ Perceptron vs ADALINE — Comparativo
+##  Perceptron vs ADALINE — Comparativo
 
 <table>
 <tr>
 <th align="center">Característica</th>
-<th align="center">🟡 Perceptron</th>
-<th align="center">🔵 ADALINE</th>
+<th align="center"> Perceptron</th>
+<th align="center"> ADALINE</th>
 </tr>
 <tr>
 <td align="center"><b>Autor</b></td>
@@ -249,16 +249,16 @@ Um sistema industrial envia sinais codificados com **4 grandezas** para acionar 
 
 <img src="assets/divider.svg" width="100%" alt="divider"/>
 
-## 📁 Estrutura do Projeto
+##  Estrutura do Projeto
 
 ```
 perc_ada/
-├── 📂 atividades/                  # Materiais do professor
+├──  atividades/                  # Materiais do professor
 │   ├── Perceptron.pdf              # Enunciado do Perceptron
 │   ├── Adaline.pdf                 # Enunciado da Adaline
 │   └── oleo_dataset.csv            # Dataset de treinamento (Perceptron)
 │
-├── 📂 perceptron/                  # Implementação do Perceptron
+├──  perceptron/                  # Implementação do Perceptron
 │   ├── perceptron.py               # Código principal
 │   └── resultados/                 # Gráficos e relatório gerados
 │       ├── evolucao_erros.png
@@ -266,7 +266,7 @@ perc_ada/
 │       ├── classificacao_teste.png
 │       └── relatorio.txt
 │
-├── 📂 adaline/                     # Implementação da ADALINE
+├──  adaline/                     # Implementação da ADALINE
 │   ├── adaline.py                  # Código principal
 │   └── resultados/                 # Gráficos e relatório gerados
 │       ├── eqm_treinamentos.png
@@ -274,13 +274,13 @@ perc_ada/
 │       ├── classificacao_teste.png
 │       └── relatorio.txt
 │
-├── 📂 assets/                      # Imagens do README
+├──  assets/                      # Imagens do README
 └── README.md                       # Este arquivo
 ```
 
 <img src="assets/divider.svg" width="100%" alt="divider"/>
 
-## 🚀 Como Executar
+##  Como Executar
 
 ```bash
 # Clonar o repositório
@@ -302,10 +302,10 @@ pip install numpy matplotlib
 
 <img src="assets/divider.svg" width="100%" alt="divider"/>
 
-## 📝 Respostas Teóricas
+##  Respostas Teóricas
 
 <details>
-<summary>❓ <b>Por que o número de épocas varia no Perceptron?</b></summary>
+<summary> <b>Por que o número de épocas varia no Perceptron?</b></summary>
 
 <br>
 
@@ -316,7 +316,7 @@ O **Teorema da Convergência do Perceptron** garante que, para dados linearmente
 </details>
 
 <details>
-<summary>❓ <b>Qual a principal limitação do Perceptron?</b></summary>
+<summary> <b>Qual a principal limitação do Perceptron?</b></summary>
 
 <br>
 
@@ -325,7 +325,7 @@ O Perceptron **só classifica padrões linearmente separáveis** — ou seja, de
 </details>
 
 <details>
-<summary>❓ <b>Por que os pesos finais da Adaline são praticamente iguais?</b></summary>
+<summary> <b>Por que os pesos finais da Adaline são praticamente iguais?</b></summary>
 
 <br>
 

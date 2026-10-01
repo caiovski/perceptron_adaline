@@ -466,7 +466,7 @@ def main():
     print("  ADALINE — Classificação de Sinais para Válvulas A e B")
     print("  CEFET-MG Campus VIII – Varginha | Lab. Inteligência Artificial")
     print("=" * 72)
-    print(f"\n  ⚙ Configurações:")
+    print(f"\n   Configurações:")
     print(f"    • Taxa de aprendizagem (η):  {TAXA_APRENDIZAGEM}")
     print(f"    • Precisão (ε):              {PRECISAO}")
     print(f"    • Bias (x0):                 {BIAS_INPUT}")
@@ -478,7 +478,7 @@ def main():
     # PREPARAR DADOS
     # ─────────────────────────────────────────────────────────────────────
     print(f"\n{'─' * 72}")
-    print("  📂 Preparando dados...")
+    print("   Preparando dados...")
 
     # Montar conjunto de treinamento com bias
     dados = np.array(DADOS_TREINAMENTO)
@@ -490,7 +490,7 @@ def main():
 
     n_valvA = int(np.sum(d_treino == -1))
     n_valvB = int(np.sum(d_treino == 1))
-    print(f"    ✓ {len(X_treino)} amostras de treinamento")
+    print(f"     {len(X_treino)} amostras de treinamento")
     print(f"    • Válvula A (d = -1): {n_valvA} amostras")
     print(f"    • Válvula B (d = +1): {n_valvB} amostras")
 
@@ -501,7 +501,7 @@ def main():
     # ITENS 1 e 2: EXECUTAR 5 TREINAMENTOS
     # ─────────────────────────────────────────────────────────────────────
     print(f"\n{'=' * 72}")
-    print("  📋 ITENS 1 e 2 — Resultados dos 5 Treinamentos")
+    print("   ITENS 1 e 2 — Resultados dos 5 Treinamentos")
     print(f"{'=' * 72}")
 
     resultados_treino = []
@@ -545,20 +545,20 @@ def main():
     # ITEM 3: GRÁFICOS DE EQM (T1 e T2 na mesma folha)
     # ─────────────────────────────────────────────────────────────────────
     print(f"\n{'=' * 72}")
-    print("  📋 ITEM 3 — Gráficos de EQM × Épocas")
+    print("   ITEM 3 — Gráficos de EQM × Épocas")
     print(f"{'=' * 72}")
 
     caminho1 = plotar_eqm_dois_treinamentos(resultados_treino[0], resultados_treino[1])
-    print(f"    ✓ EQM (T1 e T2):            {caminho1}")
+    print(f"     EQM (T1 e T2):            {caminho1}")
 
     caminho2 = plotar_eqm_todos(resultados_treino)
-    print(f"    ✓ EQM (todos sobrepostos):   {caminho2}")
+    print(f"     EQM (todos sobrepostos):   {caminho2}")
 
     # ─────────────────────────────────────────────────────────────────────
     # ITEM 4: CLASSIFICAÇÃO DAS AMOSTRAS DE TESTE
     # ─────────────────────────────────────────────────────────────────────
     print(f"\n{'=' * 72}")
-    print("  📋 ITEM 4 — Classificação das Amostras de Teste")
+    print("   ITEM 4 — Classificação das Amostras de Teste")
     print(f"{'=' * 72}")
 
     classificacoes = []
@@ -584,7 +584,7 @@ def main():
     print(f"\n  Legenda: A = Válvula A (d = -1) | B = Válvula B (d = +1)")
 
     # Análise de concordância
-    print(f"\n  📊 Análise de concordância:")
+    print(f"\n   Análise de concordância:")
     for j in range(len(AMOSTRAS_TESTE)):
         votos = [classificacoes[i][j] for i in range(5)]
         if len(set(votos)) == 1:
@@ -600,13 +600,13 @@ def main():
 
     # Gráfico de classificação
     caminho3 = plotar_comparacao_classificacoes(classificacoes, AMOSTRAS_TESTE)
-    print(f"\n    ✓ Heatmap classificações:    {caminho3}")
+    print(f"\n     Heatmap classificações:    {caminho3}")
 
     # ─────────────────────────────────────────────────────────────────────
     # ITEM 5: EXPLICAÇÃO TEÓRICA
     # ─────────────────────────────────────────────────────────────────────
     print(f"\n{'=' * 72}")
-    print("  📋 ITEM 5 — Por que os pesos finais são praticamente iguais?")
+    print("   ITEM 5 — Por que os pesos finais são praticamente iguais?")
     print(f"{'=' * 72}")
     print("""
     Embora o número de épocas varie entre os treinamentos (porque os
@@ -648,7 +648,7 @@ def main():
     """)
 
     # Comparação numérica dos pesos finais
-    print("    📊 Comparação numérica dos pesos finais:")
+    print("     Comparação numérica dos pesos finais:")
     print(f"    {'Treino':^8} {'w0':^12} {'w1':^12} {'w2':^12} {'w3':^12} {'w4':^12}")
     print(f"    {'─' * 68}")
     for r in resultados_treino:
@@ -727,13 +727,13 @@ def main():
         f.write("diferentes na superfície de erro têm comprimentos diferentes,\n")
         f.write("mas todos chegam ao mesmo ponto de mínimo.\n")
 
-    print(f"\n    ✓ Relatório salvo: {relatorio_path}")
+    print(f"\n     Relatório salvo: {relatorio_path}")
 
     # ─────────────────────────────────────────────────────────────────────
     # FINALIZAÇÃO
     # ─────────────────────────────────────────────────────────────────────
     print(f"\n{'=' * 72}")
-    print("  ✅ Execução concluída com sucesso!")
+    print("   Execução concluída com sucesso!")
     print(f"{'=' * 72}")
     print(f"\n  Arquivos gerados em: adaline/resultados/")
     print(f"    • eqm_treinamentos.png      — EQM de T1 e T2 (mesma folha)")
