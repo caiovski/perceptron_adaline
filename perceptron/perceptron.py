@@ -51,7 +51,7 @@ BIAS_INPUT = -1             # Valor fixo da entrada x0 (bias do neurônio)
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 RESULTADOS_DIR = os.path.join(SCRIPT_DIR, 'resultados')
 
-# Procurar o dataset oleo_dataset.csv em caminhos possíveis
+# Procurar os datasets do Perceptron em caminhos possíveis
 _caminhos_possiveis = [
     os.path.join(SCRIPT_DIR, '..', 'atividades', 'perceptron_adaline', 'oleo_dataset.csv'),
     os.path.join(SCRIPT_DIR, '..', 'atividades', 'oleo_dataset.csv'),
@@ -60,6 +60,15 @@ _caminhos_possiveis = [
     'oleo_dataset.csv'
 ]
 DATASET_PATH = next((p for p in _caminhos_possiveis if os.path.exists(p)), _caminhos_possiveis[0])
+
+_caminhos_teste_possiveis = [
+    os.path.join(SCRIPT_DIR, '..', 'atividades', 'perceptron_adaline', 'oleo_teste.csv'),
+    os.path.join(SCRIPT_DIR, '..', 'atividades', 'oleo_teste.csv'),
+    os.path.join(SCRIPT_DIR, 'oleo_teste.csv'),
+    os.path.join(os.getcwd(), 'atividades', 'perceptron_adaline', 'oleo_teste.csv'),
+    'oleo_teste.csv'
+]
+DATASET_TESTE_PATH = next((p for p in _caminhos_teste_possiveis if os.path.exists(p)), None)
 
 # Criar pasta de resultados se não existir
 os.makedirs(RESULTADOS_DIR, exist_ok=True)
