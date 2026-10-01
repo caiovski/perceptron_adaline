@@ -1,0 +1,73 @@
+========================================================================
+  RELATÓRIO — PERCEPTRON — Classificação de Pureza de Óleo
+  CEFET-MG Campus VIII – Varginha
+  Lab. Inteligência Artificial — Prof. Lázaro Eduardo da Silva
+========================================================================
+
+CONFIGURAÇÕES:
+  Taxa de aprendizagem (η): 0.01
+  Bias (x0): -1
+  Função de ativação: Degrau Bipolar
+  Seeds: [1, 2, 3, 4, 5]
+  Dataset: 30 amostras (C1: 14, C2: 16)
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+ITENS 1 e 2 — Resultados dos 5 Treinamentos
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+  Treinamento T1 (seed=1):
+    Pesos Iniciais: w0=0.4170  w1=0.7203  w2=0.0001  w3=0.3023
+    Pesos Finais:   w0=-3.1030  w1=1.5733  w2=2.5022  w3=-0.7393
+    Épocas: 404
+
+  Treinamento T2 (seed=2):
+    Pesos Iniciais: w0=0.4360  w1=0.0259  w2=0.5497  w3=0.4353
+    Pesos Finais:   w0=-3.0440  w1=1.4792  w2=2.4785  w3=-0.7272
+    Épocas: 399
+
+  Treinamento T3 (seed=3):
+    Pesos Iniciais: w0=0.5508  w1=0.7081  w2=0.2909  w3=0.5108
+    Pesos Finais:   w0=-3.1292  w1=1.5771  w2=2.5154  w3=-0.7440
+    Épocas: 438
+
+  Treinamento T4 (seed=4):
+    Pesos Iniciais: w0=0.9670  w1=0.5472  w2=0.9727  w3=0.7148
+    Pesos Finais:   w0=-3.0530  w1=1.5299  w2=2.4721  w3=-0.7284
+    Épocas: 426
+
+  Treinamento T5 (seed=5):
+    Pesos Iniciais: w0=0.2220  w1=0.8707  w2=0.2067  w3=0.9186
+    Pesos Finais:   w0=-3.1580  w1=1.5962  w2=2.5345  w3=-0.7505
+    Épocas: 434
+
+─────────────────────────────────────────────────────────────────────────────────────
+ITEM 3 — Classificação das Amostras de Teste
+─────────────────────────────────────────────────────────────────────────────────────
+
+  Amostra      x1         x2         x3       T1     T2     T3     T4     T5  
+     1      -0.3565     0.0620     5.9891     C1     C1     C1     C1     C1   
+     2      -0.7842     1.1267     5.5912     C2     C2     C2     C2     C2   
+     3       0.3012     0.5611     5.8234     C2     C2     C2     C2     C2   
+     4       0.7757     1.0648     8.0677     C2     C2     C2     C2     C2   
+     5       0.1570     0.8028     6.3040     C2     C2     C2     C2     C2   
+     6      -0.7014     1.0316     3.6005     C2     C2     C2     C2     C2   
+     7       0.3748     0.1536     6.1537     C1     C1     C1     C1     C1   
+     8      -0.6920     0.9404     4.4058     C2     C2     C2     C2     C2   
+     9      -1.3970     0.7141     4.9263     C1     C1     C1     C1     C1   
+     10     -1.8842    -0.2805     1.2548     C1     C1     C1     C1     C1   
+
+
+────────────────────────────────────────────────────────────────────────
+ITEM 4 — Por que o número de épocas varia?
+────────────────────────────────────────────────────────────────────────
+O número de épocas varia porque os pesos iniciais são diferentes
+em cada treinamento. Pesos iniciais diferentes significam pontos
+de partida diferentes no espaço de busca, resultando em caminhos
+mais curtos ou mais longos até a convergência.
+
+────────────────────────────────────────────────────────────────────────
+ITEM 5 — Principal limitação do Perceptron
+────────────────────────────────────────────────────────────────────────
+O perceptron só classifica padrões linearmente separáveis.
+Para problemas não linearmente separáveis (como XOR), o perceptron
+nunca converge. São necessárias redes multicamadas (MLP).

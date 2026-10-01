@@ -1,0 +1,79 @@
+========================================================================
+  RELATÓRIO — ADALINE — Classificação de Sinais (Válvulas A/B)
+  CEFET-MG Campus VIII – Varginha
+  Lab. Inteligência Artificial — Prof. Lázaro Eduardo da Silva
+========================================================================
+
+CONFIGURAÇÕES:
+  Taxa de aprendizagem (η): 0.0025
+  Precisão (ε): 1e-06
+  Bias (x0): -1
+  Função de ativação: Degrau Bipolar (apenas na operação)
+  Seeds: [1, 2, 3, 4, 5]
+  Dataset: 35 amostras (Válv.A: 18, Válv.B: 17)
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+ITENS 1 e 2 — Resultados dos 5 Treinamentos
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+  Treinamento T1 (seed=1):
+    Pesos Iniciais: w0=0.4170  w1=0.7203  w2=0.0001  w3=0.3023  w4=0.1468
+    Pesos Finais:   w0=-1.8113  w1=1.3125  w2=1.6414  w3=-0.4264  w4=-1.1771
+    Épocas: 890
+    EQM final: 0.30810625
+
+  Treinamento T2 (seed=2):
+    Pesos Iniciais: w0=0.4360  w1=0.0259  w2=0.5497  w3=0.4353  w4=0.4204
+    Pesos Finais:   w0=-1.8113  w1=1.3126  w2=1.6414  w3=-0.4264  w4=-1.1771
+    Épocas: 892
+    EQM final: 0.30810633
+
+  Treinamento T3 (seed=3):
+    Pesos Iniciais: w0=0.5508  w1=0.7081  w2=0.2909  w3=0.5108  w4=0.8929
+    Pesos Finais:   w0=-1.8113  w1=1.3126  w2=1.6414  w3=-0.4264  w4=-1.1771
+    Épocas: 910
+    EQM final: 0.30810624
+
+  Treinamento T4 (seed=4):
+    Pesos Iniciais: w0=0.9670  w1=0.5472  w2=0.9727  w3=0.7148  w4=0.6977
+    Pesos Finais:   w0=-1.8113  w1=1.3126  w2=1.6415  w3=-0.4263  w4=-1.1772
+    Épocas: 918
+    EQM final: 0.30810592
+
+  Treinamento T5 (seed=5):
+    Pesos Iniciais: w0=0.2220  w1=0.8707  w2=0.2067  w3=0.9186  w4=0.4884
+    Pesos Finais:   w0=-1.8113  w1=1.3126  w2=1.6414  w3=-0.4263  w4=-1.1772
+    Épocas: 902
+    EQM final: 0.30810598
+
+───────────────────────────────────────────────────────────────────────────────────────────────
+ITEM 4 — Classificação das Amostras de Teste
+───────────────────────────────────────────────────────────────────────────────────────────────
+
+  Amostra      x1         x2         x3         x4       T1     T2     T3     T4     T5  
+     1       0.9694     0.6909     0.4334     3.4965     A      A      A      A      A    
+     2       0.5427     1.3832     0.6390     4.0352     A      A      A      A      A    
+     3       0.6081    -0.9196     0.5925     0.1016     B      B      B      B      B    
+     4      -0.1618     0.4694     0.2030     3.0117     A      A      A      A      A    
+     5       0.1870    -0.2578     0.6124     1.7749     A      A      A      A      A    
+     6       0.4891    -0.5276     0.4378     0.6439     B      B      B      B      B    
+     7       0.3777     2.0149     0.7423     3.3932     B      B      B      B      B    
+     8       1.1498    -0.4067     0.2469     1.5866     B      B      B      B      B    
+     9       0.9325     1.0950     1.0359     3.3591     B      B      B      B      B    
+     10      0.5060     1.3317     0.9222     3.7174     A      A      A      A      A    
+     11      0.0497    -2.0656     0.6124    -0.6585     A      A      A      A      A    
+     12      0.4004     3.5369     0.9766     5.3532     B      B      B      B      B    
+     13     -0.1874     1.3343     0.5374     3.2189     A      A      A      A      A    
+     14      0.5060     1.3317     0.9222     3.7174     A      A      A      A      A    
+     15      1.6375    -0.7911     0.7537     0.5515     B      B      B      B      B    
+
+
+────────────────────────────────────────────────────────────────────────
+ITEM 5 — Por que os pesos finais são praticamente iguais?
+────────────────────────────────────────────────────────────────────────
+A Adaline minimiza o EQM via Gradiente Descendente. A superfície
+de erro é parabólica com um ÚNICO mínimo global. Independente dos
+pesos iniciais, o algoritmo sempre converge para os MESMOS pesos
+finais. A variação no número de épocas ocorre porque caminhos
+diferentes na superfície de erro têm comprimentos diferentes,
+mas todos chegam ao mesmo ponto de mínimo.
