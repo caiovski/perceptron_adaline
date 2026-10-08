@@ -66,18 +66,22 @@ os.makedirs(RESULTADOS_DIR, exist_ok=True)
 
 # Procurar os arquivos CSV do ADALINE em caminhos possíveis
 _caminhos_treino_ada = [
+    os.path.join(SCRIPT_DIR, '..', 'atividades', 'perceptron_adaline', 'adaline', 'adaline_treinamento.csv'),
     os.path.join(SCRIPT_DIR, '..', 'atividades', 'perceptron_adaline', 'adaline_treinamento.csv'),
     os.path.join(SCRIPT_DIR, '..', 'atividades', 'adaline_treinamento.csv'),
     os.path.join(SCRIPT_DIR, 'adaline_treinamento.csv'),
+    os.path.join(os.getcwd(), 'atividades', 'perceptron_adaline', 'adaline', 'adaline_treinamento.csv'),
     os.path.join(os.getcwd(), 'atividades', 'perceptron_adaline', 'adaline_treinamento.csv'),
     'adaline_treinamento.csv'
 ]
 ADALINE_TREINO_PATH = next((p for p in _caminhos_treino_ada if os.path.exists(p)), None)
 
 _caminhos_teste_ada = [
+    os.path.join(SCRIPT_DIR, '..', 'atividades', 'perceptron_adaline', 'adaline', 'adaline_teste.csv'),
     os.path.join(SCRIPT_DIR, '..', 'atividades', 'perceptron_adaline', 'adaline_teste.csv'),
     os.path.join(SCRIPT_DIR, '..', 'atividades', 'adaline_teste.csv'),
     os.path.join(SCRIPT_DIR, 'adaline_teste.csv'),
+    os.path.join(os.getcwd(), 'atividades', 'perceptron_adaline', 'adaline', 'adaline_teste.csv'),
     os.path.join(os.getcwd(), 'atividades', 'perceptron_adaline', 'adaline_teste.csv'),
     'adaline_teste.csv'
 ]

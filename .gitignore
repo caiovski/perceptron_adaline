@@ -1,0 +1,33 @@
+# ==============================================================================
+# Git Ignore - Perceptron, ADALINE & Perceptron Multicamadas
+# ==============================================================================
+
+# Diretório de arquivos temporários e rascunhos (Scratch)
+scratch
+scratch/
+*/scratch/
+temp/
+tmp/
+temp_*
+*.tmp
+
+# Python cache e compilação
+__pycache__/
+/__pycache__
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Ambientes virtuais
+.venv/
+venv/
+env/
+ENV/
+
+# Arquivos de sistema
+.DS_Store
+Thumbs.db
+desktop.ini

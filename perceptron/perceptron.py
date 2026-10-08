@@ -53,18 +53,22 @@ RESULTADOS_DIR = os.path.join(SCRIPT_DIR, 'resultados')
 
 # Procurar os datasets do Perceptron em caminhos possíveis
 _caminhos_possiveis = [
+    os.path.join(SCRIPT_DIR, '..', 'atividades', 'perceptron_adaline', 'perceptron', 'oleo_dataset.csv'),
     os.path.join(SCRIPT_DIR, '..', 'atividades', 'perceptron_adaline', 'oleo_dataset.csv'),
     os.path.join(SCRIPT_DIR, '..', 'atividades', 'oleo_dataset.csv'),
     os.path.join(SCRIPT_DIR, 'oleo_dataset.csv'),
+    os.path.join(os.getcwd(), 'atividades', 'perceptron_adaline', 'perceptron', 'oleo_dataset.csv'),
     os.path.join(os.getcwd(), 'atividades', 'perceptron_adaline', 'oleo_dataset.csv'),
     'oleo_dataset.csv'
 ]
 DATASET_PATH = next((p for p in _caminhos_possiveis if os.path.exists(p)), _caminhos_possiveis[0])
 
 _caminhos_teste_possiveis = [
+    os.path.join(SCRIPT_DIR, '..', 'atividades', 'perceptron_adaline', 'perceptron', 'oleo_teste.csv'),
     os.path.join(SCRIPT_DIR, '..', 'atividades', 'perceptron_adaline', 'oleo_teste.csv'),
     os.path.join(SCRIPT_DIR, '..', 'atividades', 'oleo_teste.csv'),
     os.path.join(SCRIPT_DIR, 'oleo_teste.csv'),
+    os.path.join(os.getcwd(), 'atividades', 'perceptron_adaline', 'perceptron', 'oleo_teste.csv'),
     os.path.join(os.getcwd(), 'atividades', 'perceptron_adaline', 'oleo_teste.csv'),
     'oleo_teste.csv'
 ]
