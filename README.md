@@ -274,6 +274,8 @@ Os documentos finais foram gerados preservando os templates oficiais do CEFET-MG
 |:----------|:----------|:------:|
 | 📄 [`PMC_Exer1_Caio.pdf`](perceptron/multicamadas/PMC_Exer1_Caio.pdf) | **Exercício 1**: Dedução matemática analítica formal completa da regra da cadeia para as matrizes $W_1, W_2$ e $W_3$ (conexão direta de entrada para saída). | ✅ Pronto para Envio |
 | 📄 [`PMC_Exer2_Caio.pdf`](perceptron/multicamadas/PMC_Exer2_Caio.pdf) | **Exercício 2**: Formulário oficial preenchido com Tabelas dos Itens 2 e 5, folha anexa oficial com gráficos (Item 3), justificativa teórica (Item 4) e seleção ótima (Item 6). | ✅ Pronto para Envio |
+| 📄 [`PMC_Exer3_Caio.pdf`](atividades/perceptron_adaline/perceptron/multicamadas/exercicio3/PMC_Exer3_Caio.pdf) | **Exercício 3**: Classificação de conservantes de bebidas ($4 \to 15 \to 3$). Comparativo Backprop Padrão vs Momentum, tabela de teste preenchida com 100% de acerto e anexo com curvas de convergência. | ✅ Pronto para Envio |
+| 📄 [`PMC_Exer4_Caio.pdf`](atividades/perceptron_adaline/perceptron/multicamadas/exercicio4/PMC_Exer4_Caio.pdf) | **Exercício 4**: Série temporal financeira via TDNN ($p=5, 10, 15$). Tabela dos 9 treinamentos, teste de 20 passos com menor ERM (8.42%), gráficos de convergência/predição e estudo teórico sobre RProp e LM. | ✅ Pronto para Envio |
 | 📓 [`multicamadas.ipynb`](perceptron/multicamadas/multicamadas.ipynb) | Notebook interativo completo com execução documentada passo a passo. | ✅ Executado e Validado |
 | 🐍 [`multicamadas.py`](perceptron/multicamadas/multicamadas.py) | Script de treinamento, validação estatística e exportação de relatórios (NumPy puro). | ✅ Autônomo |
 
@@ -369,6 +371,8 @@ perceptron_adeline/
 │       ├── respostas_multicamadas.txt  # Relatório textual com todas as respostas
 │       ├── PMC_Exer1_Caio.pdf          # 📄 PDF FINAL EXERCÍCIO 1 (Pronto para envio)
 │       ├── PMC_Exer2_Caio.pdf          # 📄 PDF FINAL EXERCÍCIO 2 (Pronto para envio)
+│       ├── PMC_Exer3_Caio.pdf          # 📄 PDF FINAL EXERCÍCIO 3 (Pronto para envio)
+│       ├── PMC_Exer4_Caio.pdf          # 📄 PDF FINAL EXERCÍCIO 4 (Pronto para envio)
 │       └── resultados/                 # Curvas de convergência e relatórios
 │           ├── convergencia_maiores_epocas.png
 │           ├── convergencia_todos_treinamentos.png
